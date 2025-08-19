@@ -1,4 +1,14 @@
 steps:
+  # Delete old Cloud Run service (ignore error if not found)
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        gcloud run services delete detect-valid-file-from-gcs-function \
+          --region=us-central1 --quiet || true
+
+  # Deploy Cloud Function with same name
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:latest'
     entrypoint: gcloud
     args:
