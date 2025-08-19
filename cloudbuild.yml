@@ -1,7 +1,7 @@
 steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: gcloud
     args:
+      - gcloud
       - functions
       - deploy
       - detect-valid-file-from-gcs-function 
@@ -11,4 +11,6 @@ steps:
       - --region=us-central1
       - --entry-point=check_file_size_and_move
       - --source=.
-      - --allow-unauthenticated
+      - --allow-unauthenticated 
+options:
+  logging: CLOUD_LOGGING_ONLY
