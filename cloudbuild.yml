@@ -5,6 +5,7 @@ steps:
       - functions
       - deploy
       - detect-valid-file-from-gcs-function
+      - --gen2
       - --runtime=python310
       - --trigger-event=google.storage.object.finalize
       - --trigger-resource=cloud-function-demo-dump-bucket
