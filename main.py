@@ -24,7 +24,7 @@ def check_file_size_and_move(cloud_event):
         print(f"Unable to determine the size for {file_name}. Skipping.")
         return
 
-    max_size = 2 * 1024 * 1024  # 2MB
+    max_size = 5 * 1024 * 1024  # 5MB
 
     if file_size > max_size:
         destination_bucket = storage_client.bucket(INVALID_FILES_BUCKET)
