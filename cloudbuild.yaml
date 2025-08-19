@@ -1,0 +1,14 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - functions
+      - deploy
+      - detect-valid-file-from-gcs-function 
+      - --runtime=python310
+      - --trigger-event=google.storage.object.finalize
+      - --trigger-resource=cloud-function-demo-dump-bucket
+      - --region=us-central1
+      - --entry-point=check_file_size_and_move
+      - --source=.
+      - --allow-unauthenticated
